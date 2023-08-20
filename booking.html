@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTEL BOOKING REGISTRATION FORM</title>
+    <style>
+        .head1{
+            margin: auto;
+            background-color: orange;
+        }
+        label{
+        width: 140px;
+        display: inline-block;
+        text-align: left;
+        }
+    input{
+        padding: 4px;
+        font-size: 14px;
+        border-radius: 7px;
+        text-align: left;
+        margin-bottom: 5px;
+        width:150px;
+        }
+    
+    #rt{
+        width: 160px;
+        padding: 4px;
+        font-size: 14px;
+        border-radius: 7px;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    #am{
+        width: 160px;
+        padding: 4px;
+        font-size: 14px;
+        border-radius: 7px;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+    .head2{
+        text-align: center;
+
+    }
+    #button{
+        height: 25px;
+        width: 60px;
+        text-align: center;
+        margin-left: 250px;
+    }
+    </style>
+</head>
+<style>
+body {
+  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+<marquee style="color:red;">Hello welcome to room booking
+ 20% discount on dulex rooms.</marquee>
+<marquee style="color:green;">suite rooms are not available for less than 4 persons.</marquee>
+    <div class="head1">
+    <h1 style="text-align: center; color: pink;"><i>HOTEL BOOKING REGISTRATION FORM</i></h1>
+    </div>
+    <hr>
+    <div class="head2">
+        <form onsubmit="xyz();return false">
+            <label>Customer name </label>
+            <input class="col-xs-3" id="inputdefault" placeholder="enter the name " required><br>
+            <label>Check-in Date </label>
+            <input class="col-xs-4" id="inputdefault" type="date" required><br>
+            <label >Total No of days </label>
+            <input class="col-xs-5" id="inputdefault1" type="number" placeholder="enter no of days" required><br>
+            <label>Total No of Persons </label>
+            <input class="col-xs-6" id="inputdefault2" type="number"  placeholder="enter no of persons" required>
+            <br>
+            <label>Room Type</label>
+            <select id="rt">
+                <option>Choose a room</option>
+                <option>Delux Room</option>
+                <option>Suite Room</option>
+		    <option>double room</option>
+                <option>junior suite</option>
+            </select>
+            <br>
+            <label>Amenities</label>
+            <select id="am">
+                <option>choose</option>
+                <option>Beach View</option>
+                <option>Locker</option>
+            </select>
+            <br>
+            <label>Advance Amount</label>
+            <input class="col-xs-6" id="inputdefault3" type="number"  placeholder="Amount" required>
+            <br><br>
+            <button id="button">Register</button>
+            <br><br>
+        </form>
+        
+    </div>
+    <div class="head3">
+    <p id="1"></p>
+    <p id="2"></p>
+    </div>
+    <script>
+        function xyz(){
+            let total_amount=0;
+            let delux_Room=2500;
+            let suite_room=4000;
+            let double=5000;
+            let junior_suite=2000;
+            let beach_view=1000;
+            let locker=300;
+            let no_of_customers,no_of_days,advance_amount;
+            no_of_customers=document.getElementById("inputdefault2").value;
+            no_of_days=document.getElementById("inputdefault1").value;
+            advance_amount=document.getElementById("inputdefault3").value;
+            room=document.getElementById("rt").value;
+            amen=document.getElementById("am").value;
+            if(room=="Delux Room")
+            {
+                total_amount=total_amount+delux_Room*no_of_days*no_of_customers;
+            }
+            else if(room=="Suite Room")
+            {
+                total_amount=total_amount+suite_room*no_of_days*no_of_customers;
+            }
+            else if(room=="double room")
+		{
+		    total_amount=total_amount+double*no_of_days*no_of_customers;  
+            }
+            else
+            {
+                total_amount=total_amount+junior_suite*no_of_days*no_of_customers; 
+            }
+            if(amen=="Beach View")
+            {
+                total_amount=total_amount+beach_view*no_of_days;
+            }
+            else if(amen=="Locker")
+            {
+                total_amount=total_amount+locker*no_of_days;
+            }
+            if(no_of_customers>2)
+            {
+                let y=no_of_customers-2;
+                total_amount=total_amount+1000*y;
+            }
+            let result=total_amount-advance_amount;
+            let c,d,e;
+            document.write("Total amount :"+"="+total_amount);
+document.write("<br>");
+            document.write("Amount To be paid :"+result);
+document.write("<br>");
+		e=document.write("Advance amount given :"+advance_amount);
+        }
+nam=document.getElementById("inputdefault").value;
+document.write(nam);
+    </script>
+
+</body>
+</html>
